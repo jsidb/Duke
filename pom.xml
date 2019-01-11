@@ -46,6 +46,10 @@ TO PUBLISH SNAPSHOTS
     <description>Duke is a configurable record linkage engine.</description>
     <url>https://github.com/larsga/Duke</url>
 
+    <properties>
+      <maven.javadoc.skip>true</maven.javadoc.skip>
+    </properties>
+
     <modules>
         <module>duke-core</module>
         <module>duke-mapdb</module>
@@ -202,6 +206,9 @@ TO PUBLISH SNAPSHOTS
                                 <goals>
                                     <goal>jar</goal>
                                 </goals>
+				<configuration> <!-- add this to disable checking -->
+			                <additionalparam>-Xdoclint:none</additionalparam>
+				</configuration>
                             </execution>
                         </executions>
                     </plugin>
