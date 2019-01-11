@@ -241,11 +241,13 @@ TO PUBLISH SNAPSHOTS
     </profiles>
 
     <!-- this is necessary to get the buildnumber plugin to work -->
+    <!--
     <scm>
         <connection>scm:git:git@github.com:larsga/Duke.git</connection>
         <developerConnection>scm:git:git@github.com:larsga/Duke.git</developerConnection>
         <url>https://github.com/larsga/Duke</url>
     </scm>
+    -->
 
     <!-- the below is included because Sonatype hosting requires it -->
     <licenses>
