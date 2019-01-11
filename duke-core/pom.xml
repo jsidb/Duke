@@ -3,7 +3,7 @@
     <parent>
         <groupId>no.priv.garshol.duke</groupId>
         <artifactId>duke</artifactId>
-        <version>1.4-SNAPSHOT</version>
+        <version>1.5-SNAPSHOT</version>
         <relativePath>../</relativePath>
     </parent>
     <artifactId>duke-core</artifactId>
