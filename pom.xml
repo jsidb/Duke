@@ -40,7 +40,7 @@ TO PUBLISH SNAPSHOTS
     <groupId>no.priv.garshol.duke</groupId>
     <artifactId>duke</artifactId>
     <packaging>pom</packaging>
-    <version>1.8</version>
+    <version>1.9-SNAPSHOT</version>
 
     <name>Duke</name>
     <description>Duke is a configurable record linkage engine.</description>
@@ -95,44 +95,44 @@ TO PUBLISH SNAPSHOTS
             <dependency>
                 <groupId>no.priv.garshol.duke</groupId>
                 <artifactId>duke-core</artifactId>
-                <version>1.8</version>
+                <version>1.9-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>no.priv.garshol.duke</groupId>
                 <artifactId>duke-core</artifactId>
-                <version>1.8</version>
+                <version>1.9-SNAPSHOT</version>
                 <type>test-jar</type>
                 <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>no.priv.garshol.duke</groupId>
                 <artifactId>duke-mapdb</artifactId>
-                <version>1.8</version>
+                <version>1.9-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>no.priv.garshol.duke</groupId>
                 <artifactId>duke-lucene</artifactId>
-                <version>1.8</version>
+                <version>1.9-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>no.priv.garshol.duke</groupId>
                 <artifactId>duke-server</artifactId>
-                <version>1.8</version>
+                <version>1.9-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>no.priv.garshol.duke</groupId>
                 <artifactId>duke-mongodb</artifactId>
-                <version>1.8</version>
+                <version>1.9-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>no.priv.garshol.duke</groupId>
                 <artifactId>duke-json</artifactId>
-                <version>1.8</version>
+                <version>1.9-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>no.priv.garshol.duke</groupId>
                 <artifactId>duke-es</artifactId>
-                <version>1.8</version>
+                <version>1.9-SNAPSHOT</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -300,7 +300,7 @@ TO PUBLISH SNAPSHOTS
         <connection>scm:git:git@github.com:jsidb/Duke.git</connection>
         <developerConnection>scm:git:git@github.com:jsidb/Duke.git</developerConnection>
         <url>https://github.com/jsidb/Duke</url>
-      <tag>v1.8</tag>
+      <tag>v1.5</tag>
   </scm>
     
 
