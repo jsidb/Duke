@@ -40,7 +40,7 @@ TO PUBLISH SNAPSHOTS
     <groupId>no.priv.garshol.duke</groupId>
     <artifactId>duke</artifactId>
     <packaging>pom</packaging>
-    <version>1.5-SNAPSHOT</version>
+    <version>1.8-SNAPSHOT</version>
 
     <name>Duke</name>
     <description>Duke is a configurable record linkage engine.</description>
@@ -62,12 +62,17 @@ TO PUBLISH SNAPSHOTS
     </modules>
 
     <distributionManagement>
-	<repository>
-		<id>deployment</id>
-		<name>Internal Releases</name>
-		<url>https://intranet.oneway.de/nexus/content/repositories/releases/</url>
-	</repository>
-    </distributionManagement>
+		<repository>
+			<id>deployment</id>
+			<name>Internal Releases</name>
+			<url>https://intranet.oneway.de/nexus/content/repositories/releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>deployment</id>
+			<name>Internal Releases</name>
+			<url>https://intranet.oneway.de/nexus/content/repositories/snapshot</url>
+		</snapshotRepository>
+	</distributionManagement>
 
     <dependencies>
         <dependency>
@@ -90,44 +95,44 @@ TO PUBLISH SNAPSHOTS
             <dependency>
                 <groupId>no.priv.garshol.duke</groupId>
                 <artifactId>duke-core</artifactId>
-                <version>1.5-SNAPSHOT</version>
+                <version>1.8-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>no.priv.garshol.duke</groupId>
                 <artifactId>duke-core</artifactId>
-                <version>1.5-SNAPSHOT</version>
+                <version>1.8-SNAPSHOT</version>
                 <type>test-jar</type>
                 <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>no.priv.garshol.duke</groupId>
                 <artifactId>duke-mapdb</artifactId>
-                <version>1.5-SNAPSHOT</version>
+                <version>1.8-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>no.priv.garshol.duke</groupId>
                 <artifactId>duke-lucene</artifactId>
-                <version>1.5-SNAPSHOT</version>
+                <version>1.8-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>no.priv.garshol.duke</groupId>
                 <artifactId>duke-server</artifactId>
-                <version>1.5-SNAPSHOT</version>
+                <version>1.8-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>no.priv.garshol.duke</groupId>
                 <artifactId>duke-mongodb</artifactId>
-                <version>1.5-SNAPSHOT</version>
+                <version>1.8-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>no.priv.garshol.duke</groupId>
                 <artifactId>duke-json</artifactId>
-                <version>1.5-SNAPSHOT</version>
+                <version>1.8-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <groupId>no.priv.garshol.duke</groupId>
                 <artifactId>duke-es</artifactId>
-                <version>1.5-SNAPSHOT</version>
+                <version>1.8-SNAPSHOT</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -148,16 +153,16 @@ TO PUBLISH SNAPSHOTS
                 </plugin>
 
 
-		<plugin>
-		   <groupId>org.apache.maven.plugins</groupId>
-		   <artifactId>maven-release-plugin</artifactId>
-		   <version>2.4.2</version>
-		   <configuration>
-		      <tagNameFormat>v@{project.version}</tagNameFormat>
-		      <autoVersionSubmodules>true</autoVersionSubmodules>
-		      <releaseProfiles>releases</releaseProfiles>
-		   </configuration>
-		</plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-release-plugin</artifactId>
+                    <version>2.5.3</version>
+                    <configuration>
+                        <tagNameFormat>v@{project.version}</tagNameFormat>
+                        <autoVersionSubmodules>true</autoVersionSubmodules>
+                        <releaseProfiles>releases</releaseProfiles>
+                    </configuration>
+                </plugin>
 		
 
                 <!-- declaring specific version to avoid Maven 2.x problems -->
@@ -192,32 +197,32 @@ TO PUBLISH SNAPSHOTS
     <!-- adding the Sonatype stuff to a profile, so it can be turned off -->
     <profiles>
 
-	<profile>
-      <id>releases</id>
-      <build>
-         <plugins>
-            <plugin>
-               <groupId>org.sonatype.plugins</groupId>
-               <artifactId>nexus-staging-maven-plugin</artifactId>
-               <version>1.5.1</version>
-               <executions>
-                  <execution>
-                     <id>default-deploy</id>
-                     <phase>deploy</phase>
-                     <goals>
-                        <goal>deploy</goal>
-                     </goals>
-                  </execution>
-               </executions>
-               <configuration>
-                  <serverId>nexus-releases</serverId>
-                  <nexusUrl>https://intranet.oneway.de/nexus/</nexusUrl>
-                  <skipStaging>true</skipStaging>
-               </configuration>
-            </plugin>
-         </plugins>
-      </build>
-   </profile>
+        <profile>
+            <id>releases</id>
+            <build>
+                <plugins>
+                    <plugin>
+                    <groupId>org.sonatype.plugins</groupId>
+                    <artifactId>nexus-staging-maven-plugin</artifactId>
+                    <version>1.5.1</version>
+                    <executions>
+                        <execution>
+                            <id>default-deploy</id>
+                            <phase>deploy</phase>
+                            <goals>
+                                <goal>deploy</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <serverId>deployment</serverId>
+                        <nexusUrl>https://intranet.oneway.de/nexus/</nexusUrl>
+                        <skipStaging>true</skipStaging>
+                    </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
 
         <profile>
             <id>sonatype</id>
@@ -295,7 +300,7 @@ TO PUBLISH SNAPSHOTS
         <connection>scm:git:git@github.com:jsidb/Duke.git</connection>
         <developerConnection>scm:git:git@github.com:jsidb/Duke.git</developerConnection>
         <url>https://github.com/jsidb/Duke</url>
-      <tag>HEAD</tag>
+      <tag>v1.5</tag>
   </scm>
     
 
